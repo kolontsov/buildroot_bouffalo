@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo "Compressing UBoot Image"
 lz4 -9 -f $BINARIES_DIR/u-boot.bin $BINARIES_DIR/u-boot.bin.lz4
 cd $BINARIES_DIR
