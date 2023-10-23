@@ -25,7 +25,7 @@ make
 - D0 Group[Group0] Image Addr [0x58020000] [PATH to d0_lowload_bl808_d0.bin]
 - Click 'Create & Download' and wait until it's done
 
-![Bouffalo Lab Dev Cube flash lowlevel loader](buildroot/docs/images/bl808-flash-lowloader.png)
+![Bouffalo Lab Dev Cube flash lowlevel loader](docs/images/bl808-flash-lowloader.png)
 
 If you want to load linux, dtb and rootfs from flash, you need do as the following steps:
 NorFlash layout:
@@ -46,7 +46,7 @@ rootfs.squashfs			|RO rootfs						|8MB	|0x500000
   - Enable 'Single Download', set Address to 0x40000, choose [bl808-firmware.bin]
   - Click 'Create & Download' again and wait until it's done
 
-![Bouffalo Lab Dev Cube single download](buildroot/docs/images/bl808-single-download.png)
+![Bouffalo Lab Dev Cube single download](docs/images/bl808-single-download.png)
 
 - Flash linux kernel & dtb
   - Enable 'Single Download', set Address to 0x100000, choose [bl808.itb]
