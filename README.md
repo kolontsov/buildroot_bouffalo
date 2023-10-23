@@ -75,7 +75,8 @@ rootfs.squashfs			|RO rootfs						|8MB	|0x500000
 	+ This step is one-time and optional.
 
 - Flash overlay filesystem data.
-	+ Actually, we don't need to do anything here, just assure that the whole flash is erased before flashing any binaries or firmwares.
+	+ Actually, we don't need to do anything here, just assure that the whole flash is erased before flashing any binaries or firmwares. To achieve this, set *Chip Erase* to true.
+	![Bouffalo Lab bl808-chip-erase](docs/images/bl808-chip-erase.png)
 
 - Reboot and Enjoy!
 
