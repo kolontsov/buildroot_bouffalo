@@ -28,6 +28,7 @@ make
 ![Bouffalo Lab Dev Cube flash lowlevel loader](docs/images/bl808-flash-lowloader.png)
 
 If you want to load linux, dtb and rootfs from flash, you need do as the following steps:
+
 NorFlash layout:
 
 file|description|size|offset
@@ -68,6 +69,9 @@ rootfs.squashfs			|RO rootfs						|8MB	|0x500000
 	+ This step is one-time and optional.
 
 - Reboot and Enjoy!
+
+## Set up WiFi
+	Please refer to [here](https://github.com/bouffalolab/blwnet_xram)
 
 ## Compiling Applications for BL808 based boards
 
