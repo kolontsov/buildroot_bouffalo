@@ -21,6 +21,12 @@ make
 - Select the uart port and set baudrate with 2000000
     + UART TX is physical pin 1/GPIO 14.
     + UART RX is physical pin 2/GPIO 15.
+- Flash whole flash image to quickly finish the flash process, or refer to next section if updating partial image
+  - In the 'IOT' view, enable single download, set address to 0, choose bl808_16M_whole_bin.bin.
+  ![Flash whole image bin](docs/images/bl808-flash-whole-image.png)
+  - Click 'Create & Download' and wait until it's done
+  - You can reboot and enjoy now!
+
 - M0 Group[Group0] Image Addr [0x58000000] [PATH to m0_lowload_bl808_m0.bin]
 - D0 Group[Group0] Image Addr [0x58020000] [PATH to d0_lowload_bl808_d0.bin]
 - Click 'Create & Download' and wait until it's done

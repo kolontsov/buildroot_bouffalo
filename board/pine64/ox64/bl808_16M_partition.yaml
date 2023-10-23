@@ -1,0 +1,36 @@
+flash:
+  size: 0x1000000
+
+partitions:
+  - description: 'M0 low loader'
+    file_name: m0_lowload_bl808_m0.bin
+    offset: 0x0
+    size: 0x20000
+
+  - description: 'D0 low loader'
+    file_name: d0_lowload_bl808_d0.bin
+    offset: 0x20000
+    size: 0x20000
+
+  - description: 'sbi+dtb+uboot'
+    file_name: bl808-firmware.bin
+    offset: 0x40000
+    size: 0xb0000
+
+  - description: 'uboot env'
+    offset: 0xf0000
+    size: 0x10000
+
+  - description: 'kernel+dtb FIT image'
+    file_name: bl808.itb
+    offset: 0x100000
+    size: 0x400000
+
+  - description: 'RO rootfs'
+    file_name: rootfs.squashfs
+    offset: 0x500000
+    size: 0x800000
+
+  - description: 'RW rootfs overlay'
+    offset: 0xd00000
+    size: 0x300000
