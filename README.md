@@ -68,10 +68,13 @@ rootfs.squashfs			|RO rootfs						|8MB	|0x500000
 	  and check if it is 'mtd read nor0 52000000 100000 400000', then type **saveenv**.
 	+ This step is one-time and optional.
 
+- Flash overlay filesystem data.
+	+ Actually, we don't need to do anything here, just assure that the whole flash is erased before flashing any binaries or firmwares.
+
 - Reboot and Enjoy!
 
 ## Set up WiFi
-	Please refer to [here](https://github.com/bouffalolab/blwnet_xram)
+Please refer to [here](https://github.com/bouffalolab/blwnet_xram)
 
 ## Compiling Applications for BL808 based boards
 
