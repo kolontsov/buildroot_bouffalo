@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-BLWNET_XRAM_VERSION = 80beb2028d45c436efea943d0a9e8f5bbc498fb8
+BLWNET_XRAM_VERSION = d133be8588f46e7b48d8a43ba157fc8d40797288
 BLWNET_XRAM_SITE = $(call github,bouffalolab,blwnet_xram,$(BLWNET_XRAM_VERSION))
 BLWNET_XRAM_LICENSE = GPL-2.0(kernel driver), Apache 2.0(userspace)
 
@@ -25,6 +25,7 @@ define BLWNET_XRAM_INSTALL_TARGET_CMDS
 	$(foreach f,$(BLWRET_XRAM_USERSPACE_INSTALL_FILES),\
 		$(INSTALL) -D -m 0755 $(@D)/userspace/$(f) $(TARGET_DIR)/usr/bin
 	)
+	$(INSTALL) -D -m 644 $(@D)/fw/bl808-m0-fh.bin $(TARGET_DIR)/lib/firmware/bl808-m0-fh.bin
 endef
 
 $(eval $(kernel-module))
