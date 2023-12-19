@@ -41,7 +41,7 @@ file|description|size|offset
 -|:-|:-|:-
 m0_lowload_bl808_m0.bin	|M0 lowlevel loader				|128KB	|0x0	 
 d0_lowload_bl808_d0.bin	|D0 lowlevel loader				|128KB	|0x20000 
-bl808-firmware.bin     	|openspi+uboot+uboot dtb		|128KB	|0x40000 
+bl808-firmware.bin     	|openspi+uboot+uboot dtb		|710KB	|0x40000
 *none*				   	|uboot Environment			    |64KB	|0xf0000 
 bl808.itb				|linux kernel + dtb FIT image	|4MB	|0x100000
 rootfs.squashfs			|RO rootfs						|8MB	|0x500000
