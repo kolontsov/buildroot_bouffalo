@@ -1,0 +1,28 @@
+#!/bin/sh
+DEFAULT=/etc/default/rootssh
+
+start() {
+    if [ -e /root/.ssh/authorized_keys ]; then
+       return 0
+    fi
+    if [ ! -e $DEFAULT ]; then
+       echo $DEFAULT is missing
+       return 1
+    fi
+    . $DEFAULT
+    mkdir -p /root/.ssh
+    chmod 700 /root/.ssh
+    echo $SSH_AUTH_KEY >/root/.ssh/authorized_keys
+    chmod 600 /root/.ssh/authorized_keys
+}
+
+case "$1" in
+    start)
+        printf "Setting root authorized key: "
+	"$1"
+        [ $? = 0 ] && echo "OK" || echo "FAIL"
+        ;;
+    *)
+        echo "Usage: $0 {start}"
+        exit 1
+esac
