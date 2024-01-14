@@ -1,0 +1,50 @@
+#!/bin/sh
+DEFAULT=/etc/default/wifi
+
+connect() {
+    AP_NAME=$1
+    AP_PASSWORD=$2
+    if [ -z "$AP_NAME" ]; then
+       return 1
+    fi
+    if [ -z "$AP_PASSWORD" ]; then
+       return 1
+    fi
+    echo Connecting to $AP_NAME..
+    blctl connect_ap "$AP_NAME" "$AP_PASSWORD"
+    for i in $(seq 1 20); do
+        if blctl get_link_status | grep UP; then
+           echo Connected
+           echo Retrieving IP via DHCP
+           udhcpc -i bleth0
+           return 0
+        fi
+        sleep 1
+        echo $i
+    done
+    echo Failed
+    return 1
+}
+
+start() {
+    if [ ! -e $DEFAULT ]; then
+       echo $DEFAULT is missing
+       return 1
+    fi
+    . $DEFAULT
+    if connect $AP_NAME $AP_PASSWORD; then return 0; fi
+    if connect $AP_NAME2 $AP_PASSWORD2; then return 0; fi
+    if connect $AP_NAME3 $AP_PASSWORD3; then return 0; fi
+    return 1
+}
+
+case "$1" in
+    start)
+        echo "Starting Wi-Fi..."
+	"$1"
+        [ $? = 0 ] && echo "OK" || echo "FAIL"
+        ;;
+    *)
+        echo "Usage: $0 {start}"
+        exit 1
+esac
