@@ -1,1 +1,4 @@
 *~
+board/pine64/ox64/rootfs-overlay/etc/default/
+board/pine64/ox64/rootfs-overlay/etc/opkg/
+board/pine64/ox64/rootfs-overlay/etc/dropbear/
