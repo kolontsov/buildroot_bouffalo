@@ -14,5 +14,6 @@ mkdir /overlay/upper /overlay/work 2>/dev/null
 mount -t overlay -o lowerdir=/,upperdir=/overlay/upper,workdir=/overlay/work overlay /mnt
 mkdir /mnt/old_root 2>/dev/null
 pivot_root /mnt /mnt/old_root
+[ -c /dev/null ] || (rm -f /dev/null; mknod -m 666 /dev/null c 1 3)
 
 exec /sbin/init
